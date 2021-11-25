@@ -1,0 +1,17 @@
+* {
+    box-sizing: border-box;
+}
+
+li {
+    list-style-type: none;
+}
+
+input {
+    width: 400px;
+    height: 35px;
+    padding: 10px;
+    border-radius: 2px;
+    outline: none;
+    border-width: 0.4px;
+}
+
