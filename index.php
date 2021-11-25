@@ -34,36 +34,38 @@ if (isset($_POST['search'])) {
     <a href="index.php" class="btn btn-secondary shadow-sm my-4 rounded">Refresh</a>
     <a href="add.php" class="btn btn-primary shadow-sm my-4 rounded">Tambah data siswa</a>
     <form action="" method="post" class="float-end form-style align-middle">
-        <input type="text" name="keyword" class="align-middle" autocomplete="off" autofocus>
-        <button type="submit" name="search" autofocus class="btn btn-primary shadow-sm my-4 rounded">Search</button>
+        <input type="text" name="keyword" class="align-middle" autocomplete="off" autofocus id="keyword">
+        <button type="submit" name="search" autofocus class="btn btn-primary shadow-sm my-4 rounded" id="submit-search">Search</button>
     </form>
-    <table class="table table-responsive table-bordered table-striped shadow-sm rounded">
-        <tr class="table-primary">
-            <th class="text-center">No.</th>
-            <th class="text-center">NISN</th>
-            <th class="text-center">Nama</th>
-            <th class="text-center">Email</th>
-            <th class="text-center">Tahun Lahir</th>
-            <th class="text-center">Jurusan</th>
-            <th class="text-center">Aksi</th>
-        </tr>
-        <?php $i = 1; ?>
-        <?php foreach ($students as $std) : ?>
-            <tr>
-                <td class="align-middle text-center"><?= $i ?></td>
-                <td class="align-middle"><?= $std["nisn"] ?></td>
-                <td class="align-middle"><?= $std["name"] ?></td>
-                <td class="align-middle"><?= $std["email"] ?></td>
-                <td class="align-middle"><?= $std["date"] ?></td>
-                <td class="align-middle"><?= $std["major"] ?></td>
-                <td class="align-middle text-center">
-                    <a href="update.php?id=<?= $std["id"] ?>" class="btn btn-primary">Edit</a>
-                    <a href="delete.php?id=<?= $std["id"] ?>" class="btn btn-danger delete-data">Delete</a>
-                </td>
+    <div id="container-ajax">
+        <table class="table table-responsive table-bordered table-striped shadow-sm rounded">
+            <tr class="table-primary">
+                <th class="text-center">No.</th>
+                <th class="text-center">NISN</th>
+                <th class="text-center">Nama</th>
+                <th class="text-center">Email</th>
+                <th class="text-center">Tahun Lahir</th>
+                <th class="text-center">Jurusan</th>
+                <th class="text-center">Aksi</th>
             </tr>
-            <?php $i++; ?>
-        <?php endforeach; ?>
-    </table>
+            <?php $i = 1; ?>
+            <?php foreach ($students as $std) : ?>
+                <tr>
+                    <td class="align-middle text-center"><?= $i ?></td>
+                    <td class="align-middle"><?= $std["nisn"] ?></td>
+                    <td class="align-middle"><?= $std["name"] ?></td>
+                    <td class="align-middle"><?= $std["email"] ?></td>
+                    <td class="align-middle"><?= $std["date"] ?></td>
+                    <td class="align-middle"><?= $std["major"] ?></td>
+                    <td class="align-middle text-center">
+                        <a href="update.php?id=<?= $std["id"] ?>" class="btn btn-primary">Edit</a>
+                        <a href="delete.php?id=<?= $std["id"] ?>" class="btn btn-danger delete-data">Delete</a>
+                    </td>
+                </tr>
+                <?php $i++; ?>
+            <?php endforeach; ?>
+        </table>
+    </div>
 </div>
 
 <!-- JS -->
