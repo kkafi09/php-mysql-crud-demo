@@ -1,3 +1,5 @@
+create database school;
+
 create table student
 (
     id    int auto_increment
